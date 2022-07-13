@@ -21,6 +21,4 @@ jobs:
       - id: get-machine
         run: echo "::set-output name=id::$(flyctl machine list --json |  jq '.[] | select(.state == "started").id' )"
 
-      - run: echo ${{ steps.get-machine.outputs.id }}
-
       - run: flyctl machine run --id ${{ steps.get-machine.outputs.id }} .
