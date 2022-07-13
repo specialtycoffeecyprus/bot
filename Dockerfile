@@ -22,4 +22,4 @@ RUN set -eux ; \
 
 EXPOSE 8080
 
-CMD ["/usr/local/bin/php", "-S", "0.0.0.0:8080", "-t", "public"]
+CMD ["/usr/local/bin/php", "-S", "0.0.0.0:8080", "-t", "public", "app\router.php"]
