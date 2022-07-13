@@ -1,0 +1,11 @@
+app = "specialty-bot"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+PRIMARY_REGION = "fra"
+
+[experimental]
+allowed_public_ports = []
+auto_rollback = true

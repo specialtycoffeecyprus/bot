@@ -1,0 +1,10 @@
+﻿.editorconfig
+.env.*
+.git
+.gitattributes
+.gitignore
+Dockerfile
+LICENSE
+README.md
+vendor
+fly.*

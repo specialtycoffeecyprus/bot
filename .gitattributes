@@ -1,0 +1,3 @@
+* text=auto eol=lf
+*.php diff=php
+composer.lock -diff

@@ -1,0 +1,46 @@
+{
+    "name": "specialtycoffeecyprus/specialty-bot",
+    "type": "project",
+    "description": "Specialty Coffee in Cyprus",
+    "keywords": [
+        "specialty",
+        "coffee",
+        "coffeshop",
+        "cyprus",
+        "telegram",
+        "bot"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-phar": "*",
+        "nutgram/nutgram": "*",
+        "sentry/sdk": "*",
+        "symfony/dotenv": "^6"
+    },
+    "replace": {
+        "symfony/polyfill-php80": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "config": {
+        "apcu-autoloader": true,
+        "classmap-authoritative": false,
+        "discard-changes": true,
+        "htaccess-protect": false,
+        "notify-on-install": false,
+        "optimize-autoloader": true,
+        "platform-check": false,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

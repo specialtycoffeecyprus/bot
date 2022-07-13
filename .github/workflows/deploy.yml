@@ -1,0 +1,26 @@
+name: Deploy to Fly
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - id: get-machine
+        run: echo "::set-output name=id::$(flyctl machine list --json |  jq '.[] | select(.state == "started").id' )"
+
+      - run: echo ${{ steps.get-machine.outputs.id }}
+
+      - run: flyctl machine run --id ${{ steps.get-machine.outputs.id }} .

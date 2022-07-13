@@ -1,0 +1,7 @@
+.env.*
+.idea
+http-client.*
+http-request.*
+tests
+vendor
+fly.machine.json
