@@ -27,12 +27,7 @@ use function Sentry\init;
 $dotenv = new Dotenv();
 $dotenv->loadEnv(dirname(__DIR__).'/.env');
 
-init([
-    'dsn' => $_ENV['SENTRY_DSN'],
-    'environment' => $_ENV['APP_ENV'],
-    'send_default_pii' => (bool)$_ENV['SENTRY_SEND_DEFAULT_PII'],
-    'traces_sample_rate' => (float)$_ENV['SENTRY_TRACES_SAMPLE_RATE'],
-]);
+init(['dsn' => $_ENV['SENTRY_DSN']]);
 
 $bot = new Nutgram($_ENV['BOT_TOKEN']);
 $bot->setRunningMode(Webhook::class);
