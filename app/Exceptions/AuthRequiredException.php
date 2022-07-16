@@ -7,7 +7,7 @@ namespace App\Exceptions;
 use RuntimeException;
 use Throwable;
 
-class AuthRequiredException extends RuntimeException
+final class AuthRequiredException extends RuntimeException
 {
     public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {

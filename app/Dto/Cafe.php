@@ -6,7 +6,7 @@ namespace App\Dto;
 
 use stdClass;
 
-class Cafe
+final class Cafe
 {
     public function __construct(
         public readonly int $id,

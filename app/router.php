@@ -10,7 +10,7 @@ $dotenv = new Dotenv();
 $dotenv->loadEnv(dirname(__DIR__).'/.env');
 
 // Process requests from own canonical address
-if (str_ends_with($_ENV['APP_URL'], '://'.$_SERVER['HTTP_HOST'])) {
+if (str_ends_with((string)$_ENV['APP_URL'], '://'.$_SERVER['HTTP_HOST'])) {
     // Process normal requests
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['SCRIPT_NAME'] === '/index.php') {
         return false;

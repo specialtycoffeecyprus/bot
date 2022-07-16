@@ -10,7 +10,7 @@ use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
 use function error_log;
 
-class ApiErrorHandler
+final class ApiErrorHandler
 {
     public function __invoke(Nutgram $bot, TelegramException $exception): ?Message
     {

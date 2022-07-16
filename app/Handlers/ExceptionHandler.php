@@ -11,7 +11,7 @@ use Throwable;
 
 use function error_log;
 
-class ExceptionHandler
+final class ExceptionHandler
 {
     public function __invoke(Nutgram $bot, Throwable $exception): ?Message
     {

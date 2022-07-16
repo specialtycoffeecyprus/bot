@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Dto\Cafe;
 
-class Formatter
+final class Formatter
 {
     public static function item(Cafe $cafe): string
     {

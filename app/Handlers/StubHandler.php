@@ -8,7 +8,7 @@ use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
-class StubHandler
+final class StubHandler
 {
     public function __invoke(Nutgram $bot): ?Message
     {

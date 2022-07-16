@@ -22,6 +22,10 @@
         "sentry/sdk": "*",
         "symfony/dotenv": "^6"
     },
+    "require-dev": {
+        "ext-intl": "*",
+        "rector/rector": "*"
+    },
     "replace": {
         "symfony/polyfill-php80": "*"
     },

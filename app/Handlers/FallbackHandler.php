@@ -7,7 +7,7 @@ namespace App\Handlers;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
-class FallbackHandler
+final class FallbackHandler
 {
     public function __invoke(Nutgram $bot): ?Message
     {

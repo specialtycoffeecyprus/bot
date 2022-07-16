@@ -9,7 +9,7 @@ use App\Services\Sender;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
-class LocationHandler
+final class LocationHandler
 {
     public function __construct(private readonly ApiService $api, private readonly Sender $sender)
     {

@@ -16,7 +16,7 @@ use function json_decode;
 
 use const JSON_THROW_ON_ERROR;
 
-class ApiService
+final class ApiService
 {
     private readonly Client $client;
 

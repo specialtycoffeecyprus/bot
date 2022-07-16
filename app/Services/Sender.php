@@ -11,7 +11,7 @@ use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
 use function array_reduce;
 
-class Sender
+final class Sender
 {
     public function __construct(private readonly Nutgram $bot)
     {
