@@ -23,4 +23,4 @@ jobs:
 
       - run: flyctl machine run --id ${{ steps.get-machine.outputs.id }} .
 
-      - run: curl -i ${{ secrets.APP_URL }}/setup.php
+      - run: curl -iL ${{ secrets.APP_URL }}/setup.php
