@@ -15,6 +15,4 @@ $dotenv->loadEnv(dirname(__DIR__).'/.env');
 init(['dsn' => $_ENV['SENTRY_DSN']]);
 
 $bot = new Nutgram($_ENV['BOT_TOKEN']);
-$result = $bot->setWebhook($_ENV['APP_URL'], ['secret_token' => $_ENV['BOT_SECRET']]);
-
-exit($result);
+$bot->setWebhook($_ENV['APP_URL'], ['secret_token' => $_ENV['BOT_SECRET']]);
