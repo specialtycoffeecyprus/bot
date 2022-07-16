@@ -16,14 +16,9 @@ if (str_ends_with((string)$_ENV['APP_URL'], '://'.$_SERVER['HTTP_HOST'])) {
         return false;
     }
 
-    // Process GET requests from health-check
-    if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['SCRIPT_NAME'] === '/index.php') {
-        return true;
-    }
-
-    // Process requests to static files
+    // Process GET requests from health-check or requests to static files
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        return false;
+        return $_SERVER['SCRIPT_NAME'] === '/index.php';
     }
 
     // Reject other requests
