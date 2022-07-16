@@ -6,9 +6,6 @@ processes = []
 [env]
 PRIMARY_REGION = "fra"
 
-[deploy]
-release_command = "curl -i 'https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?secret_token=${BOT_SECRET}&url=${APP_URL}/index.php'"
-
 [experimental]
 allowed_public_ports = []
 auto_rollback = true
