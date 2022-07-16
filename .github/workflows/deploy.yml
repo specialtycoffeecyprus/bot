@@ -22,3 +22,5 @@ jobs:
         run: echo "::set-output name=id::$(flyctl machine list --json |  jq '.[] | select(.state == "started").id' )"
 
       - run: flyctl machine run --id ${{ steps.get-machine.outputs.id }} .
+
+      - run: curl -i ${{ secrets.APP_URL }}/setup.php
