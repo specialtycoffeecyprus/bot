@@ -1,8 +1,7 @@
-﻿.editorconfig
+﻿.dockerignore
+.editorconfig
 .env.*
-.git
-.gitattributes
-.gitignore
+.git*
 .idea
 Dockerfile
 LICENSE
@@ -10,5 +9,6 @@ README.md
 fly.*
 http-client.*
 http-request.*
+rector.php
 tests
 vendor
