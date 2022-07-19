@@ -3,8 +3,12 @@
 .git
 .gitattributes
 .gitignore
+.idea
 Dockerfile
 LICENSE
 README.md
-vendor
 fly.*
+http-client.*
+http-request.*
+tests
+vendor
