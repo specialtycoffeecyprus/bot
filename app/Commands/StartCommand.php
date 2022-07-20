@@ -16,7 +16,7 @@ final class StartCommand implements Command
         $text = 'Write coffee shop <b><i>name</i></b> or part to search by
 Send your <b><i>location</i></b> to search nearest coffee shop
 
-Or use following commands for more
+Or use the following commands for more
 /'.ListCommand::getName().' - '.ListCommand::getDescription().'
 /'.MapCommand::getName().' - '.MapCommand::getDescription().'
 /'.NearestCommand::getName().' - '.NearestCommand::getDescription().'

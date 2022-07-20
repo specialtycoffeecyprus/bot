@@ -17,7 +17,7 @@ final class NearestCommand implements Command
 
     public function __invoke(Nutgram $bot): ?Message
     {
-        return $bot->sendMessage('Send your location to find nearest coffee shop', [
+        return $bot->sendMessage('Send your location to find the nearest coffee shop', [
             'reply_markup' => ReplyKeyboardMarkup::make(resize_keyboard: true)->addRow(KeyboardButton::make(self::SEND_TEXT, request_location: true)),
         ]);
     }
