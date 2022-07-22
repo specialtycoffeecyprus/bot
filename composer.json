@@ -1,16 +1,29 @@
 {
     "name": "specialtycoffeecyprus/specialty-bot",
+    "description": "Telegram @SpecialtyCoffeeCyBot of Specialty Coffee in Cyprus website",
     "type": "project",
-    "description": "Specialty Coffee in Cyprus",
     "keywords": [
+        "telegram",
+        "bot",
         "specialty",
         "coffee",
         "coffeshop",
-        "cyprus",
-        "telegram",
-        "bot"
+        "cyprus"
     ],
+    "homepage": "https://t.me/SpecialtyCoffeeCyBot",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Martsul",
+            "homepage": "https://t.me/vladimir_mvs",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "specialtycoffeecy@gmail.com",
+        "issues": "https://github.com/specialtycoffeecyprus/specialty-bot/issues",
+        "docs": "https://habr.com/ru/post/677594/"
+    },
     "require": {
         "php": "^8.1",
         "ext-curl": "*",
@@ -34,6 +47,8 @@
             "App\\": "app/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "apcu-autoloader": true,
         "classmap-authoritative": false,
@@ -44,7 +59,5 @@
         "platform-check": false,
         "preferred-install": "dist",
         "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
