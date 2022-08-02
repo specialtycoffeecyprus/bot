@@ -39,7 +39,7 @@ jobs:
       - id: get-machine
         run: echo "::set-output name=id::$(flyctl machine list --json |  jq '.[] | select(.state == "started").id' )"
 
-      - run: flyctl machine run --id ${{ steps.get-machine.outputs.id }} .
+      - run: flyctl machine update ${{ steps.get-machine.outputs.id }} .
 
 #      - run: curl --fail-with-body ${{ secrets.APP_URL }}/setup.php
       - run: curl -sS ${{ secrets.APP_URL }}/setup.php
