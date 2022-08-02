@@ -7,7 +7,25 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "latest"
+
+      - uses: ramsey/composer-install@v2
+        with:
+          composer-options: "--classmap-authoritative"
+
+      - run: ./vendor/bin/pest --ci -p
+
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     environment: production
     env:
