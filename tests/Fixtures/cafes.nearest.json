@@ -1,0 +1,16 @@
+{
+    "id": 3,
+    "type": "Feature",
+    "properties": {
+        "name": "South Coast Specialty Coffee",
+        "description": "Large coffee shop in the Mackenzie beach area. Several classic coffee origins, tables with sockets and a separate playground for children",
+        "placeId": "ChIJf2r8H92C4BQRClDxls7Viu4"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            33.6371021,
+            34.889787
+        ]
+    }
+}

@@ -37,9 +37,16 @@
     },
     "require-dev": {
         "ext-intl": "*",
+        "brianium/paratest": "*",
+        "illuminate/testing": "*",
+        "pestphp/pest": "*",
+        "pestphp/pest-plugin-parallel": "*",
         "rector/rector": "*"
     },
     "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-intl-grapheme": "*",
+        "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php80": "*"
     },
     "autoload": {
@@ -47,9 +54,17 @@
             "App\\": "app/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
         "apcu-autoloader": true,
         "classmap-authoritative": false,
         "discard-changes": true,

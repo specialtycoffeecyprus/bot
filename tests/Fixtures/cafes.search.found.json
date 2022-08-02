@@ -1,0 +1,21 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": 1,
+            "type": "Feature",
+            "properties": {
+                "name": "Paul's Coffee Roasters",
+                "description": "Cosy coffee shop in Larnaca downtown. There are 5-7 well-known coffee origins, V60, Cold Brew and classic drinks. A small main hall and a large garden in the backyard. Few power outlets for digital nomads",
+                "placeId": "ChIJGyOA68eD4BQRZtKA5kM_O0c"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.634976,
+                    34.9143997
+                ]
+            }
+        }
+    ]
+}

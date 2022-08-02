@@ -1,0 +1,16 @@
+{
+    "id": 13,
+    "type": "Feature",
+    "properties": {
+        "name": "Nomad Bread & Coffee Germasogia",
+        "description": "Tiny takeaway coffee shop opposite beach area with lots of coffee origins",
+        "placeId": "ChIJD9eSovjL4BQRH06tPeZARns"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            33.09743460000001,
+            34.69951760000001
+        ]
+    }
+}
