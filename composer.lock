@@ -700,16 +700,16 @@
         },
         {
             "name": "nutgram/nutgram",
-            "version": "3.5.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nutgram/nutgram.git",
-                "reference": "e92af2351d725faeb3d4bd7c2b6126c5dbf71497"
+                "reference": "3a15d9a25dd5c1551a750c1cdad1c141bf7e2782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nutgram/nutgram/zipball/e92af2351d725faeb3d4bd7c2b6126c5dbf71497",
-                "reference": "e92af2351d725faeb3d4bd7c2b6126c5dbf71497",
+                "url": "https://api.github.com/repos/nutgram/nutgram/zipball/3a15d9a25dd5c1551a750c1cdad1c141bf7e2782",
+                "reference": "3a15d9a25dd5c1551a750c1cdad1c141bf7e2782",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +773,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nutgram/nutgram/issues",
-                "source": "https://github.com/nutgram/nutgram/tree/3.5.1"
+                "source": "https://github.com/nutgram/nutgram/tree/3.6.0"
             },
             "funding": [
                 {
@@ -781,7 +781,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-07-01T23:41:27+00:00"
+            "time": "2022-08-01T19:16:44+00:00"
         },
         {
             "name": "opis/closure",
