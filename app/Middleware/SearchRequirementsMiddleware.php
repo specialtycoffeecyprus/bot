@@ -9,6 +9,8 @@ use SergiX44\Nutgram\Middleware\Link;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
+use function call_user_func;
+
 final class SearchRequirementsMiddleware
 {
     public function __invoke(Nutgram $bot, Link $next): ?Message
@@ -19,6 +21,6 @@ final class SearchRequirementsMiddleware
             return $next($bot);
         }
 
-        return (new FallbackHandler())($bot);
+        return call_user_func($bot->resolve(FallbackHandler::class), $bot);
     }
 }

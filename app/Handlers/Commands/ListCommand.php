@@ -2,45 +2,44 @@
 
 declare(strict_types=1);
 
-namespace App\Handlers;
+namespace App\Handlers\Commands;
 
 use App\Answers\Answer;
 use App\Answers\TextAnswer;
 use App\Answers\VenueAnswer;
 use App\Dto\Cafe;
-use App\Handlers\Handler as BaseHandler;
+use App\Handlers\Commands\Command as BaseCommand;
 use App\Services\ApiService;
 use App\Services\Formatter;
 use App\Services\Sender;
-use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
-use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
 use function array_walk;
 
-final class SearchHandler extends BaseHandler
+final class ListCommand extends BaseCommand
 {
-    private string $text;
-
-
     public function __construct(Sender $sender, private readonly ApiService $api)
     {
         parent::__construct($sender);
     }
 
 
-    public function __invoke(Nutgram $bot): ?Message
+    public static function getName(): string
     {
-        $this->text = $bot->message()->text;
+        return 'list';
+    }
 
-        return $this->sender->send($this->getAnswer());
+
+    public static function getDescription(): string
+    {
+        return 'List all specialty coffee shops';
     }
 
 
     /** @inheritDoc */
     public function getAnswer(): Answer|array
     {
-        $cafes = $this->api->getSearch($this->text);
+        $cafes = $this->api->getList();
 
         $answers = [];
 
@@ -54,19 +53,5 @@ final class SearchHandler extends BaseHandler
         });
 
         return $answers;
-    }
-
-
-    public function getText(): string
-    {
-        return $this->text;
-    }
-
-
-    public function setText(string $text): SearchHandler
-    {
-        $this->text = $text;
-
-        return $this;
     }
 }

@@ -4,41 +4,57 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Dto\Cafe;
+use App\Answers\Answer;
+use App\Answers\TextAnswer;
+use App\Answers\VenueAnswer;
+use App\Senders\TextSender;
+use App\Senders\VenueSender;
 use SergiX44\Nutgram\Nutgram;
-use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
 
 use function array_reduce;
+use function call_user_func;
+use function is_array;
 
 final class Sender
 {
+    private int $replyToMessageId = 0;
+
+
     public function __construct(private readonly Nutgram $bot)
     {
     }
 
 
-    public function sendItem(Cafe $cafe, array $opt = []): ?Message
+    /** @param Answer|Answer[] $answers */
+    public function send(Answer|array $answers): ?Message
     {
-        $message = $this->bot->sendMessage(Formatter::item($cafe), ['parse_mode' => ParseMode::HTML]);
+        if (!is_array($answers)) {
+            $answers = [$answers];
+        }
 
-        return $this->bot->sendVenue(
-            (float)$cafe->latitude, (float)$cafe->longitude, $cafe->name, '', [
-                ...[
-                    'google_place_id' => $cafe->placeId,
-                    'reply_to_message_id' => $message?->message_id,
-                ],
-                ...$opt,
-            ]
-        );
+        return array_reduce($answers, function (?Message $carry, Answer $answer): ?Message {
+            return $this->sendOne($answer);
+        });
     }
 
 
-    /** @param Cafe[] $cafes */
-    public function sendItems(array $cafes, array $opt = []): ?Message
+    private function sendOne(Answer $answer): ?Message
     {
-        return array_reduce($cafes, function (?Message $carry, Cafe $cafe) use ($opt): ?Message {
-            return $this->sendItem($cafe, $opt);
-        });
+        if ($answer->hasReplyTo()) {
+            $answer->setReplyTo($this->replyToMessageId);
+        }
+
+        $sender = match ($answer::class) {
+            TextAnswer::class => TextSender::class,
+            VenueAnswer::class => VenueSender::class,
+        };
+
+        /** @var ?Message $previousMessage */
+        $previousMessage = call_user_func($this->bot->resolve($sender), $answer);
+
+        $this->replyToMessageId = $previousMessage?->message_id;
+
+        return $previousMessage;
     }
 }

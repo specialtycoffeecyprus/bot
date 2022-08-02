@@ -18,12 +18,9 @@ use const JSON_THROW_ON_ERROR;
 
 final class ApiService
 {
-    private readonly Client $client;
 
-
-    public function __construct()
+    public function __construct(private readonly Client $client)
     {
-        $this->client = new Client(['base_uri' => $_ENV['API_URL']]);
     }
 
 
@@ -34,7 +31,7 @@ final class ApiService
      */
     public function getList(): array
     {
-        $geoJsonData = json_decode($this->client->get('/cafes')->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
+        $geoJsonData = $this->get('/');
 
         if ($geoJsonData->features === []) {
             throw new NotFoundException();
@@ -45,13 +42,12 @@ final class ApiService
 
 
     /**
-     * @return Cafe
      * @throws GuzzleException
      * @throws JsonException
      */
     public function getRandom(): Cafe
     {
-        $feature = json_decode($this->client->get('/cafes/random')->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
+        $feature = $this->get('/random');
 
         return Cafe::makeFromFeature($feature);
     }
@@ -64,7 +60,7 @@ final class ApiService
      */
     public function getSearch(string $text): array
     {
-        $geoJsonData = json_decode($this->client->get('/cafes/search', ['query' => ['q' => $text]])->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
+        $geoJsonData = $this->get('/search', ['query' => ['q' => $text]]);
 
         if ($geoJsonData->features === []) {
             throw new NotFoundException();
@@ -74,10 +70,27 @@ final class ApiService
     }
 
 
+    /**
+     * @throws GuzzleException
+     * @throws JsonException
+     */
     public function getNearest(string $latitude, string $longitude): Cafe
     {
-        $feature = json_decode($this->client->get('/cafes/nearest', ['query' => ['latitude' => $latitude, 'longitude' => $longitude]])->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
+        $feature = $this->get('/nearest', ['query' => ['latitude' => $latitude, 'longitude' => $longitude]]);
 
         return Cafe::makeFromFeature($feature);
+    }
+
+
+    /**
+     * @throws GuzzleException
+     * @throws JsonException
+     */
+    private function get(string $uri, array $options = []): stdClass
+    {
+        $uri = "/cafes$uri";
+        $uri = rtrim($uri, '/');
+
+        return json_decode($this->client->get($uri, $options)->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR);
     }
 }

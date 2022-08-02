@@ -1,4 +1,5 @@
-﻿.dockerignore
+﻿*.cache
+.dockerignore
 .editorconfig
 .env.*
 .git*
