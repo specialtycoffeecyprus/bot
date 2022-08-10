@@ -27,15 +27,15 @@ final class StartCommand extends BaseCommand
     {
         return new TextAnswer(
             'Write coffee shop <b><i>name</i></b> or part to search by
-    Send your <b><i>location</i></b> to search nearest coffee shop
+Send your <b><i>location</i></b> to search nearest coffee shop
 
-    Or use the following commands for more
-    /'.ListCommand::getName().' - '.ListCommand::getDescription().'
-    /'.MapCommand::getName().' - '.MapCommand::getDescription().'
-    /'.NearestCommand::getName().' - '.NearestCommand::getDescription().'
-    /'.RandomCommand::getName().' - '.RandomCommand::getDescription().'
+Or use the following commands for more
+/'.ListCommand::getName().' - '.ListCommand::getDescription().'
+/'.MapCommand::getName().' - '.MapCommand::getDescription().'
+/'.NearestCommand::getName().' - '.NearestCommand::getDescription().'
+/'.RandomCommand::getName().' - '.RandomCommand::getDescription().'
 
-    More about the project on the site https://specialtycoffee.cy/about/', [
+More about the project on the site https://specialtycoffee.cy/about/', [
                 'parse_mode' => ParseMode::HTML,
                 'disable_web_page_preview' => true,
             ]
