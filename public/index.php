@@ -13,8 +13,9 @@ use App\Handlers\Commands\StartCommand;
 use App\Handlers\ExceptionHandler;
 use App\Handlers\FallbackHandler;
 use App\Handlers\LocationHandler;
-use App\Handlers\SearchHandler;
 use App\Handlers\NotSupportedHandler;
+use App\Handlers\NullHandler;
+use App\Handlers\SearchHandler;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\SearchRequirementsMiddleware;
 use GuzzleHttp\Client;
@@ -43,6 +44,9 @@ $bot->onText(NearestCommand::SEND_TEXT, NotSupportedHandler::class);
 
 $bot->onMessageType(MessageTypes::TEXT, SearchHandler::class)->middleware(SearchRequirementsMiddleware::class);
 $bot->onMessageType(MessageTypes::LOCATION, LocationHandler::class);
+
+$bot->onMessageType(MessageTypes::NEW_CHAT_MEMBERS, NullHandler::class);
+$bot->onMessageType(MessageTypes::LEFT_CHAT_MEMBER, NullHandler::class);
 
 $bot->onCommand(ListCommand::getName(), ListCommand::class)->description(ListCommand::getDescription());
 $bot->onCommand(MapCommand::getName(), MapCommand::class)->description(MapCommand::getDescription());
