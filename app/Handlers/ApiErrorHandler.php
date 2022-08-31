@@ -30,7 +30,7 @@ final class ApiErrorHandler extends BaseHandler
 
     public function getAnswer(): Answer
     {
-        return new TextAnswer("Whoops, Telegram!\n".$this->exception->getMessage());
+        return new TextAnswer("Whoops, Telegram!\nSomething went wrong!");
     }
 
 

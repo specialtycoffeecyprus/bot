@@ -33,7 +33,7 @@ final class ExceptionHandler extends BaseHandler
 
     public function getAnswer(): Answer
     {
-        return new TextAnswer("Whoops!\n".$this->exception->getMessage());
+        return new TextAnswer("Whoops!\nSomething went wrong!");
     }
 
 
