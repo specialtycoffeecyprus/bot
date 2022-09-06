@@ -31,7 +31,7 @@ $dotenv->loadEnv(dirname(__DIR__).'/.env');
 
 init(['dsn' => $_ENV['SENTRY_DSN']]);
 
-$bot = new Nutgram($_ENV['BOT_TOKEN']);
+$bot = new Nutgram($_ENV['BOT_TOKEN'], ['timeout' => $_ENV['CONNECT_TIMEOUT']]);
 $bot->setRunningMode(Webhook::class);
 
 $bot->middleware(AuthMiddleware::class);
