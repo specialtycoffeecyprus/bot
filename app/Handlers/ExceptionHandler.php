@@ -33,6 +33,10 @@ final class ExceptionHandler extends BaseHandler
 
     public function getAnswer(): Answer
     {
+        if ($this->exception instanceof NotFoundException) {
+            return new TextAnswer($this->exception->getMessage());
+        }
+
         return new TextAnswer("Whoops!\nSomething went wrong!");
     }
 
