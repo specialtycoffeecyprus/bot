@@ -6,6 +6,7 @@ namespace App\Handlers;
 
 use App\Answers\Answer;
 use App\Answers\TextAnswer;
+use App\Exceptions\LocationPublicDeniedException;
 use App\Exceptions\NotFoundException;
 use App\Handlers\Handler as BaseHandler;
 use SergiX44\Nutgram\Nutgram;
@@ -23,7 +24,7 @@ final class ExceptionHandler extends BaseHandler
     {
         $this->exception = $exception;
 
-        if (!$exception instanceof NotFoundException) {
+        if (!$exception instanceof NotFoundException && !$exception instanceof LocationPublicDeniedException) {
             error_log((string)$exception);
         }
 
@@ -33,7 +34,7 @@ final class ExceptionHandler extends BaseHandler
 
     public function getAnswer(): Answer
     {
-        if ($this->exception instanceof NotFoundException) {
+        if ($this->exception instanceof NotFoundException || $this->exception instanceof LocationPublicDeniedException) {
             return new TextAnswer($this->exception->getMessage());
         }
 

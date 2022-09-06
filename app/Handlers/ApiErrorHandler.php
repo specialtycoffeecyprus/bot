@@ -6,6 +6,7 @@ namespace App\Handlers;
 
 use App\Answers\Answer;
 use App\Answers\TextAnswer;
+use App\Exceptions\LocationPublicDeniedException;
 use App\Handlers\Handler as BaseHandler;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Exceptions\TelegramException;
@@ -21,6 +22,10 @@ final class ApiErrorHandler extends BaseHandler
     public function __invoke(Nutgram $bot, TelegramException $exception): ?Message
     {
         $this->exception = $exception;
+
+        if ($this->exception->getMessage() === LocationPublicDeniedException::TEXT) {
+            throw new LocationPublicDeniedException();
+        }
 
         error_log((string)$exception);
 
