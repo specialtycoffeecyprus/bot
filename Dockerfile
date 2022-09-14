@@ -6,7 +6,7 @@ RUN curl -sS --compressed https://getcomposer.org/installer | php -- --install-d
 COPY docker/php/ ${PHP_INI_DIR}/
 
 USER www-data:www-data
-WORKDIR /app/
+WORKDIR /var/www/html/
 
 COPY --chown=www-data:www-data composer.* ./
 
