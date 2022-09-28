@@ -19,6 +19,7 @@ use App\Handlers\SearchHandler;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\SearchRequirementsMiddleware;
 use GuzzleHttp\Client;
+use SergiX44\Nutgram\Logger\ConsoleLogger;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\RunningMode\Webhook;
 use SergiX44\Nutgram\Telegram\Attributes\MessageTypes;
@@ -31,7 +32,10 @@ $dotenv->loadEnv(dirname(__DIR__).'/.env');
 
 init(['dsn' => $_ENV['SENTRY_DSN']]);
 
-$bot = new Nutgram($_ENV['BOT_TOKEN'], ['timeout' => $_ENV['CONNECT_TIMEOUT']]);
+$bot = new Nutgram($_ENV['BOT_TOKEN'], [
+    'timeout' => $_ENV['CONNECT_TIMEOUT'],
+    'logger' => ConsoleLogger::class
+]);
 $bot->setRunningMode(Webhook::class);
 
 $bot->middleware(AuthMiddleware::class);
