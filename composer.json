@@ -22,7 +22,7 @@
     "support": {
         "email": "specialtycoffeecy@gmail.com",
         "issues": "https://github.com/specialtycoffeecyprus/specialty-bot/issues",
-        "docs": "https://habr.com/ru/post/677594/"
+        "docs": "https://dev.to/vladimir_mvs/pragmatic-development-3-telegram-bot-ed1"
     },
     "require": {
         "php": "^8.1",
