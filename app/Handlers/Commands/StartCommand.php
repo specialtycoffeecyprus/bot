@@ -9,7 +9,7 @@ use App\Answers\TextAnswer;
 use App\Handlers\Commands\Command as BaseCommand;
 use SergiX44\Nutgram\Telegram\Attributes\ParseMode;
 
-final class StartCommand extends BaseCommand
+class StartCommand extends BaseCommand
 {
     public static function getName(): string
     {

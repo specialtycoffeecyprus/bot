@@ -5,6 +5,7 @@ declare(strict_types=1);
 require dirname(__DIR__).'/vendor/autoload.php';
 
 use App\Handlers\ApiErrorHandler;
+use App\Handlers\Commands\HelpCommand;
 use App\Handlers\Commands\ListCommand;
 use App\Handlers\Commands\MapCommand;
 use App\Handlers\Commands\NearestCommand;
@@ -57,6 +58,7 @@ $bot->onCommand(MapCommand::getName(), MapCommand::class)->description(MapComman
 $bot->onCommand(NearestCommand::getName(), NearestCommand::class)->description(NearestCommand::getDescription());
 $bot->onCommand(RandomCommand::getName(), RandomCommand::class)->description(RandomCommand::getDescription());
 $bot->onCommand(StartCommand::getName(), StartCommand::class)->description(StartCommand::getDescription());
+$bot->onCommand(HelpCommand::getName(), HelpCommand::class)->description(HelpCommand::getDescription());
 
 $bot->registerMyCommands();
 
