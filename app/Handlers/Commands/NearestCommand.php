@@ -30,7 +30,15 @@ final class NearestCommand extends BaseCommand
     public function getAnswer(): Answer
     {
         return new TextAnswer('Send your location to find the nearest coffee shop', [
-            'reply_markup' => ReplyKeyboardMarkup::make(resize_keyboard: true)->addRow(KeyboardButton::make(self::SEND_TEXT, request_location: true)),
+            'reply_markup' => ReplyKeyboardMarkup::make(
+                resize_keyboard: true,
+                one_time_keyboard: true,
+                selective: true
+            )->addRow(KeyboardButton::make(
+                self::SEND_TEXT,
+                request_location: true
+            )),
+            'reply_to_message_id' => 0,
         ]);
     }
 }
