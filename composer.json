@@ -44,6 +44,7 @@
         "rector/rector": "*"
     },
     "replace": {
+        "myclabs/deep-copy": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-intl-grapheme": "*",
         "symfony/polyfill-mbstring": "*",
