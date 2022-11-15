@@ -35,7 +35,7 @@ init(['dsn' => $_ENV['SENTRY_DSN']]);
 
 $bot = new Nutgram($_ENV['BOT_TOKEN'], [
     'timeout' => $_ENV['CONNECT_TIMEOUT'],
-    'logger' => ConsoleLogger::class
+    'logger' => ConsoleLogger::class,
 ]);
 $bot->setRunningMode(Webhook::class);
 

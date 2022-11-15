@@ -1,0 +1,22 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "class_attributes_separation": {
+            "elements": {
+                "const": "one",
+                "property": "one",
+                "trait_import": "none"
+            }
+        },
+        "no_extra_blank_lines": false,
+        "not_operator_with_successor_space": false,
+        "ordered_imports": false,
+        "phpdoc_tag_type": {
+            "tags": {
+                "inheritdoc": "annotation"
+            }
+        },
+        "Laravel/laravel_phpdoc_alignment": false,
+        "Laravel/laravel_phpdoc_separation": false
+    }
+}

@@ -35,7 +35,8 @@ Or use the following commands for more
 /'.NearestCommand::getName().' - '.NearestCommand::getDescription().'
 /'.RandomCommand::getName().' - '.RandomCommand::getDescription().'
 
-More about the project on the site https://specialtycoffee.cy/about/', [
+More about the project on the site https://specialtycoffee.cy/about/',
+            [
                 'parse_mode' => ParseMode::HTML,
                 'disable_web_page_preview' => true,
             ]

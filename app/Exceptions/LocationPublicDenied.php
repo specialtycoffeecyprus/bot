@@ -7,7 +7,7 @@ namespace App\Exceptions;
 use RuntimeException;
 use Throwable;
 
-final class LocationPublicDeniedException extends RuntimeException
+final class LocationPublicDenied extends RuntimeException
 {
     public const TEXT = 'Bad Request: location can be requested in private chats only';
 

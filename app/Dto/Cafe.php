@@ -22,7 +22,12 @@ final class Cafe
     public static function makeFromFeature(stdClass $feature): self
     {
         return new self(
-            $feature->id, $feature->properties->name, $feature->properties->description, $feature->properties->placeId, (string)$feature->geometry->coordinates[1], (string)$feature->geometry->coordinates[0]
+            $feature->id,
+            $feature->properties->name,
+            $feature->properties->description,
+            $feature->properties->placeId,
+            (string) $feature->geometry->coordinates[1],
+            (string) $feature->geometry->coordinates[0]
         );
     }
 }

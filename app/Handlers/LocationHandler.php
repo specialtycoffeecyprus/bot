@@ -38,12 +38,12 @@ final class LocationHandler extends BaseHandler
     /** @inheritDoc */
     public function getAnswer(): Answer|array
     {
-        $cafe = $this->api->getNearest((string)$this->location->latitude, (string)$this->location->longitude);
+        $cafe = $this->api->getNearest((string) $this->location->latitude, (string) $this->location->longitude);
 
         return [
             new TextAnswer(Formatter::item($cafe), ['parse_mode' => ParseMode::HTML]),
 
-            new VenueAnswer((float)$cafe->latitude, (float)$cafe->longitude, $cafe->name, '', [
+            new VenueAnswer((float) $cafe->latitude, (float) $cafe->longitude, $cafe->name, '', [
                 'google_place_id' => $cafe->placeId,
                 'reply_to_message_id' => 0,
                 'reply_markup' => ['remove_keyboard' => true],

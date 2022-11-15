@@ -26,7 +26,7 @@ final class Sender
     }
 
 
-    /** @param Answer|Answer[] $answers */
+    /** @param Answer|array<Answer> $answers */
     public function send(Answer|array $answers): ?Message
     {
         if (!is_array($answers)) {

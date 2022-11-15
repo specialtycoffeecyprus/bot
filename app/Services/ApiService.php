@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Dto\Cafe;
-use App\Exceptions\NotFoundException;
+use App\Exceptions\NotFound;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use JsonException;
@@ -18,14 +18,13 @@ use const JSON_THROW_ON_ERROR;
 
 final class ApiService
 {
-
     public function __construct(private readonly Client $client)
     {
     }
 
 
     /**
-     * @return Cafe[]
+     * @return array<Cafe>
      * @throws GuzzleException
      * @throws JsonException
      */
@@ -34,10 +33,10 @@ final class ApiService
         $geoJsonData = $this->get('/');
 
         if ($geoJsonData->features === []) {
-            throw new NotFoundException();
+            throw new NotFound();
         }
 
-        return array_map(static fn(stdClass $feature): Cafe => Cafe::makeFromFeature($feature), $geoJsonData->features);
+        return array_map(static fn (stdClass $feature): Cafe => Cafe::makeFromFeature($feature), $geoJsonData->features);
     }
 
 
@@ -54,7 +53,7 @@ final class ApiService
 
 
     /**
-     * @return Cafe[]
+     * @return array<Cafe>
      * @throws GuzzleException
      * @throws JsonException
      */
@@ -63,10 +62,10 @@ final class ApiService
         $geoJsonData = $this->get('/search', ['query' => ['q' => $text]]);
 
         if ($geoJsonData->features === []) {
-            throw new NotFoundException();
+            throw new NotFound();
         }
 
-        return array_map(static fn(stdClass $feature): Cafe => Cafe::makeFromFeature($feature), $geoJsonData->features);
+        return array_map(static fn (stdClass $feature): Cafe => Cafe::makeFromFeature($feature), $geoJsonData->features);
     }
 
 

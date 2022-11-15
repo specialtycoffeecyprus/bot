@@ -8,6 +8,6 @@ use App\Answers\Answer;
 
 interface Handler
 {
-    /** @return Answer|Answer[] */
+    /** @return Answer|array<Answer> */
     public function getAnswer(): Answer|array;
 }

@@ -6,8 +6,8 @@ namespace App\Handlers;
 
 use App\Answers\Answer;
 use App\Answers\TextAnswer;
-use App\Exceptions\LocationPublicDeniedException;
-use App\Exceptions\NotFoundException;
+use App\Exceptions\LocationPublicDenied;
+use App\Exceptions\NotFound;
 use App\Handlers\Handler as BaseHandler;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
@@ -24,8 +24,8 @@ final class ExceptionHandler extends BaseHandler
     {
         $this->exception = $exception;
 
-        if (!$exception instanceof NotFoundException && !$exception instanceof LocationPublicDeniedException) {
-            error_log((string)$exception);
+        if (!$exception instanceof NotFound && !$exception instanceof LocationPublicDenied) {
+            error_log((string) $exception);
         }
 
         return $this->sender->send($this->getAnswer());
@@ -34,7 +34,7 @@ final class ExceptionHandler extends BaseHandler
 
     public function getAnswer(): Answer
     {
-        if ($this->exception instanceof NotFoundException || $this->exception instanceof LocationPublicDeniedException) {
+        if ($this->exception instanceof NotFound || $this->exception instanceof LocationPublicDenied) {
             return new TextAnswer($this->exception->getMessage());
         }
 

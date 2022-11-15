@@ -10,13 +10,13 @@ use function array_key_exists;
 
 abstract class Answer implements AnswerContract
 {
-    /** @param string[] $opts */
+    /** @param array<string> $opts */
     public function __construct(protected array $opts = [])
     {
     }
 
 
-    /** @return string[] $opts */
+    /** @return array<string> $opts */
     public function getOpts(): array
     {
         return $this->opts;
