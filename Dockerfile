@@ -10,13 +10,11 @@ WORKDIR /var/www/html/
 
 COPY --chown=www-data:www-data composer.* ./
 
-ENV COMPOSER_CACHE_DIR /dev/null
-
-RUN composer install --no-autoloader --no-dev --no-interaction --no-scripts
+RUN composer install --no-autoloader --no-ansi --no-cache --no-dev --no-interaction --no-progress --no-scripts
 
 COPY --chown=www-data:www-data . .
 
-RUN composer dump-autoload --classmap-authoritative --no-interaction
+RUN composer dump-autoload --classmap-authoritative --no-ansi --no-cache --no-interaction
 
 EXPOSE 8080
 
