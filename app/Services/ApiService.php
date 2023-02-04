@@ -16,9 +16,9 @@ use function json_decode;
 
 use const JSON_THROW_ON_ERROR;
 
-final class ApiService
+final readonly class ApiService
 {
-    public function __construct(private readonly Client $client)
+    public function __construct(private Client $client)
     {
     }
 

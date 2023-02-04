@@ -7,17 +7,17 @@ use Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector;
 use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
 use Rector\Config\RectorConfig;
-use Rector\Core\ValueObject\PhpVersion;
+use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
+use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 use Rector\TypeDeclaration\Rector\ClassMethod\ArrayShapeFromConstantArrayReturnRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
-        SetList::PHP_81,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
         SetList::DEAD_CODE,
@@ -25,12 +25,15 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::NAMING,
         SetList::PRIVATIZATION,
         SetList::TYPE_DECLARATION,
-        SetList::TYPE_DECLARATION_STRICT,
+        LevelSetList::UP_TO_PHP_82,
         PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
     ]);
 
     $rectorConfig->skip([
         ArrayShapeFromConstantArrayReturnRector::class,
+        ChangeAndIfToEarlyReturnRector::class => [
+            'app/Handlers/ExceptionHandler.php'
+        ],
         EncapsedStringsToSprintfRector::class,
         RenameParamToMatchTypeRector::class,
         RenamePropertyToMatchTypeRector::class,
@@ -40,7 +43,6 @@ return static function (RectorConfig $rectorConfig): void {
         WrapEncapsedVariableInCurlyBracesRector::class,
     ]);
 
-    $rectorConfig->phpVersion(PhpVersion::PHP_81);
     $rectorConfig->importNames();
     $rectorConfig->importShortClasses();
     $rectorConfig->disableParallel();

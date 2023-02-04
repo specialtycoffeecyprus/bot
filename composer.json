@@ -25,7 +25,7 @@
         "docs": "https://dev.to/vladimir_mvs/pragmatic-development-3-telegram-bot-ed1"
     },
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
@@ -47,11 +47,14 @@
     },
     "replace": {
         "myclabs/deep-copy": "*",
+        "nesbot/carbon": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-intl-grapheme": "*",
         "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php80": "*",
-        "symfony/polyfill-php81": "*"
+        "symfony/polyfill-php81": "*",
+        "symfony/translation": "*",
+        "voku/portable-ascii": "*"
     },
     "autoload": {
         "psr-4": {
@@ -67,8 +70,8 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "pestphp/pest-plugin": true
         },
         "apcu-autoloader": true,
         "discard-changes": true,

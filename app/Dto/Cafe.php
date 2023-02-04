@@ -6,15 +6,15 @@ namespace App\Dto;
 
 use stdClass;
 
-final class Cafe
+final readonly class Cafe
 {
     public function __construct(
-        public readonly int $id,
-        public readonly string $name,
-        public readonly string $description,
-        public readonly string $placeId,
-        public readonly string $latitude,
-        public readonly string $longitude
+        public int $id,
+        public string $name,
+        public string $description,
+        public string $placeId,
+        public string $latitude,
+        public string $longitude
     ) {
     }
 

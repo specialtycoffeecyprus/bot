@@ -11,7 +11,6 @@ use App\Senders\TextSender;
 use App\Senders\VenueSender;
 use SergiX44\Nutgram\Nutgram;
 use SergiX44\Nutgram\Telegram\Types\Message\Message;
-
 use function array_reduce;
 use function call_user_func;
 use function is_array;
@@ -33,9 +32,7 @@ final class Sender
             $answers = [$answers];
         }
 
-        return array_reduce($answers, function (?Message $carry, Answer $answer): ?Message {
-            return $this->sendOne($answer);
-        });
+        return array_reduce($answers, fn (?Message $carry, Answer $answer): ?Message => $this->sendOne($answer));
     }
 
 

@@ -1,9 +1,15 @@
-FROM php:8.1-cli-alpine
+FROM php:8.2-cli-alpine
 
-RUN docker-php-ext-enable opcache
-RUN curl -sS --compressed https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
+    && pecl install apcu \
+    && docker-php-ext-enable apcu opcache \
+    && pecl clear-cache \
+    && apk del .build-dependencies \
+    && rm -fr /usr/src/*
 
-COPY docker/php/ ${PHP_INI_DIR}/
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+COPY docker/ /
 
 USER www-data:www-data
 WORKDIR /var/www/html/

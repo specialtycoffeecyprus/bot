@@ -11,12 +11,12 @@
         "no_extra_blank_lines": false,
         "not_operator_with_successor_space": false,
         "ordered_imports": false,
+        "phpdoc_separation": false,
         "phpdoc_tag_type": {
             "tags": {
                 "inheritdoc": "annotation"
             }
         },
-        "Laravel/laravel_phpdoc_alignment": false,
-        "Laravel/laravel_phpdoc_separation": false
+        "Laravel/laravel_phpdoc_alignment": false
     }
 }
