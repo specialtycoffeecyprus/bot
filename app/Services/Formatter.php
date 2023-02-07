@@ -10,8 +10,12 @@ final class Formatter
 {
     public static function item(Cafe $cafe): string
     {
-        return "<b>{$cafe->name}</b>
+        return "<b>$cafe->name</b>
+
+<i>$cafe->region</i>
+
 {$cafe->description}
-<a href=\"https://www.google.com/maps/place/?q=place_id:{$cafe->placeId}\">View on Google Maps</a>";
+
+<a href=\"$cafe->url\">View on Google Maps</a>";
     }
 }

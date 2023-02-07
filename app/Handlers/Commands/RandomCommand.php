@@ -41,7 +41,7 @@ final class RandomCommand extends BaseCommand
         return [
             new TextAnswer(Formatter::item($cafe), ['parse_mode' => ParseMode::HTML]),
 
-            new VenueAnswer((float) $cafe->latitude, (float) $cafe->longitude, $cafe->name, '', [
+            new VenueAnswer((float) $cafe->latitude, (float) $cafe->longitude, $cafe->name, $cafe->region, [
                 'google_place_id' => $cafe->placeId,
                 'reply_to_message_id' => 0,
             ]),

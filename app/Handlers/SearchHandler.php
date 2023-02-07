@@ -47,7 +47,7 @@ final class SearchHandler extends BaseHandler
         array_walk($cafes, static function (Cafe $cafe) use (&$answers): void {
             $answers[] = new TextAnswer(Formatter::item($cafe), ['parse_mode' => ParseMode::HTML]);
 
-            $answers[] = new VenueAnswer((float) $cafe->latitude, (float) $cafe->longitude, $cafe->name, '', [
+            $answers[] = new VenueAnswer((float) $cafe->latitude, (float) $cafe->longitude, $cafe->name, $cafe->region, [
                 'google_place_id' => $cafe->placeId,
                 'reply_to_message_id' => 0,
             ]);

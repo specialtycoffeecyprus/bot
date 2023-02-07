@@ -4,7 +4,9 @@
     "properties": {
         "name": "Nomad Bread & Coffee Germasogia",
         "description": "Tiny takeaway coffee shop opposite beach area with lots of coffee origins",
-        "placeId": "ChIJD9eSovjL4BQRH06tPeZARns"
+        "region": "Limassol",
+        "placeId": "ChIJD9eSovjL4BQRH06tPeZARns",
+        "url": "https://maps.google.com/?cid=2970232781892985680"
     },
     "geometry": {
         "type": "Point",

@@ -7,7 +7,9 @@
             "properties": {
                 "name": "Paul's Coffee Roasters",
                 "description": "Cosy coffee shop in Larnaca downtown. There are 5-7 well-known coffee origins, V60, Cold Brew and classic drinks. A small main hall and a large garden in the backyard. Few power outlets for digital nomads",
-                "placeId": "ChIJGyOA68eD4BQRZtKA5kM_O0c"
+                "region": "Larnaca",
+                "placeId": "ChIJGyOA68eD4BQRZtKA5kM_O0c",
+                "url": "https://maps.google.com/?cid=5132765761181373030"
             },
             "geometry": {
                 "type": "Point",
@@ -23,7 +25,9 @@
             "properties": {
                 "name": "Uluwatu Specialty Coffee",
                 "description": "Large selection of coffee origins and comfortable sofas in the old town of Limassol. Few outlets only",
-                "placeId": "ChIJbSttYBsz5xQR1h0m6ubX9g0"
+                "region": "Limassol",
+                "placeId": "ChIJbSttYBsz5xQR1h0m6ubX9g0",
+                "url": "https://maps.google.com/?cid=1006228953534701014"
             },
             "geometry": {
                 "type": "Point",

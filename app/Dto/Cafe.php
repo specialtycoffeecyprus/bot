@@ -12,9 +12,11 @@ final readonly class Cafe
         public int $id,
         public string $name,
         public string $description,
+        public string $region,
         public string $placeId,
         public string $latitude,
-        public string $longitude
+        public string $longitude,
+        public string $url,
     ) {
     }
 
@@ -25,9 +27,11 @@ final readonly class Cafe
             $feature->id,
             $feature->properties->name,
             $feature->properties->description,
+            $feature->properties->region,
             $feature->properties->placeId,
             (string) $feature->geometry->coordinates[1],
-            (string) $feature->geometry->coordinates[0]
+            (string) $feature->geometry->coordinates[0],
+            $feature->properties->url,
         );
     }
 }
