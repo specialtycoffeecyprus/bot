@@ -8,8 +8,6 @@ Dockerfile
 LICENSE
 README.md
 fly.*
-http-client.*
-http-request.*
 phpunit.xml
 rector.php
 tests

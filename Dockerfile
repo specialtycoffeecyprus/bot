@@ -5,7 +5,7 @@ RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
     && docker-php-ext-enable apcu opcache \
     && pecl clear-cache \
     && apk del .build-dependencies \
-    && rm -fr /usr/src/*
+    && rm -fr /tmp/* /usr/src/* /usr/local/include/ /usr/local/lib/php/build/ /usr/local/lib/php/doc/ /usr/local/lib/php/test/ /usr/local/php/
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
