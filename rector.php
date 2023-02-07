@@ -11,6 +11,7 @@ use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
+use Rector\Php55\Rector\Class_\ClassConstantToSelfClassRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
@@ -32,8 +33,9 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->skip([
         ArrayShapeFromConstantArrayReturnRector::class,
         ChangeAndIfToEarlyReturnRector::class => [
-            'app/Handlers/ExceptionHandler.php'
+            'app/Handlers/ExceptionHandler.php',
         ],
+        ClassConstantToSelfClassRector::class,
         EncapsedStringsToSprintfRector::class,
         RenameParamToMatchTypeRector::class,
         RenamePropertyToMatchTypeRector::class,

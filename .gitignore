@@ -1,7 +1,5 @@
 *.cache
 .env.*
 .idea
-http-client.*
-http-request.*
 vendor
 fly.machine.json
