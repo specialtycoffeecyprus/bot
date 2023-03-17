@@ -9,6 +9,7 @@ use Throwable;
 
 final class LocationPublicDenied extends RuntimeException
 {
+    /** @var string */
     public const TEXT = 'Bad Request: location can be requested in private chats only';
 
 

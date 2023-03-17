@@ -12,6 +12,7 @@ use SergiX44\Nutgram\Telegram\Types\Keyboard\ReplyKeyboardMarkup;
 
 final class NearestCommand extends BaseCommand
 {
+    /** @var string */
     public const SEND_TEXT = 'Send location';
 
 

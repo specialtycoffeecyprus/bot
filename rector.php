@@ -3,19 +3,16 @@
 declare(strict_types=1);
 
 use Rector\CodeQuality\Rector\Assign\SplitListAssignToSeparateLineRector;
-use Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector;
 use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
 use Rector\Config\RectorConfig;
 use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
-use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
-use Rector\Php55\Rector\Class_\ClassConstantToSelfClassRector;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
+use Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\TypeDeclaration\Rector\ClassMethod\ArrayShapeFromConstantArrayReturnRector;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
@@ -31,23 +28,19 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->skip([
-        ArrayShapeFromConstantArrayReturnRector::class,
         ChangeAndIfToEarlyReturnRector::class => [
             'app/Handlers/ExceptionHandler.php',
         ],
-        ClassConstantToSelfClassRector::class,
         EncapsedStringsToSprintfRector::class,
+        FinalizeClassesWithoutChildrenRector::class,
         RenameParamToMatchTypeRector::class,
         RenamePropertyToMatchTypeRector::class,
-        RenameVariableToMatchMethodCallReturnTypeRector::class,
         SplitListAssignToSeparateLineRector::class,
-        VarConstantCommentRector::class,
         WrapEncapsedVariableInCurlyBracesRector::class,
     ]);
 
     $rectorConfig->importNames();
     $rectorConfig->importShortClasses();
-    $rectorConfig->disableParallel();
 
     $rectorConfig->paths([
         __DIR__.'/app',
