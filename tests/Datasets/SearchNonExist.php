@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Str;
-
-dataset('Search non-exist', static fn (): array => [
-    Str::random(),
+dataset('Search non-exist', [
+    'heE4be1C2r8z',
 ]);
