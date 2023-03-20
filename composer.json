@@ -42,8 +42,7 @@
         "ext-simplexml": "*",
         "ext-xml": "*",
         "ext-xmlwriter": "*",
-        "illuminate/testing": "*",
-        "laravel/pint": "^1.2",
+        "laravel/pint": "*",
         "pestphp/pest": "*",
         "pestphp/pest-plugin-parallel": "*",
         "rector/rector": "*"
