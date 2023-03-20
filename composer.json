@@ -44,11 +44,11 @@
         "ext-xmlwriter": "*",
         "laravel/pint": "*",
         "pestphp/pest": "*",
-        "pestphp/pest-plugin-parallel": "*",
         "rector/rector": "*"
     },
     "replace": {
         "myclabs/deep-copy": "*",
+        "myclabs/php-enum": "*",
         "nesbot/carbon": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-intl-grapheme": "*",
