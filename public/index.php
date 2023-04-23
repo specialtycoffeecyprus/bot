@@ -62,7 +62,14 @@ $bot->onCommand(HelpCommand::getName(), HelpCommand::class)->description(HelpCom
 
 $bot->registerMyCommands();
 
-$http = new Client(['base_uri' => $_ENV['API_URL']]);
+$http = new Client([
+    'base_uri' => $_ENV['API_URL'],
+    'timeout' => $_ENV['CONNECT_TIMEOUT'],
+    'headers' => [
+        'Accept-Encoding' => 'gzip',
+        'Authorization' => 'Bearer '.$_ENV['API_TOKEN'],
+    ],
+]);
 $bot->getContainer()->addShared(Client::class, $http);
 
 $bot->run();
