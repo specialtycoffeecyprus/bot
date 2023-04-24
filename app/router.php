@@ -29,8 +29,8 @@ if (str_ends_with((string) $_ENV['APP_URL'], '://'.$_SERVER['HTTP_HOST'])) {
     return true;
 }
 
-// Internal Consul Health Check
-if ($_SERVER['HTTP_USER_AGENT'] === 'Consul Health Check' && $_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['SCRIPT_NAME'] === '/index.php' && $_SERVER['REQUEST_URI'] === '/') {
+// HTTP_X_FORWARDED_FOR is empty only from internal health checks
+if (!array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) && $_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['SCRIPT_NAME'] === '/index.php' && $_SERVER['REQUEST_URI'] === '/') {
     return true;
 }
 
