@@ -1,33 +1,18 @@
 app = "specialty-bot"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
-
-[env]
-PRIMARY_REGION = "fra"
-
-[experimental]
-allowed_public_ports = []
-auto_rollback = true
+primary_region = "ams"
 
 [[services]]
-http_checks = []
-internal_port = 8080
-processes = ["app"]
 protocol = "tcp"
-script_checks = []
-
-[services.concurrency]
-hard_limit = 25
-soft_limit = 20
-type = "connections"
+internal_port = 8080
 
 [[services.ports]]
-handlers = ["tls", "http"]
 port = 443
+handlers = ["tls"]
 
-[[services.tcp_checks]]
-grace_period = "5s"
+[[services.http_checks]]
 interval = "10s"
-restart_limit = 0
 timeout = "1s"
+grace_period = "5s"
+method = "get"
+path = "/"
+protocol = "http"
