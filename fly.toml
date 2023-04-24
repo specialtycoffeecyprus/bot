@@ -7,7 +7,7 @@ internal_port = 8080
 
 [[services.ports]]
 port = 443
-handlers = ["tls"]
+handlers = ["tls", "http"]
 
 [[services.http_checks]]
 interval = "10s"
