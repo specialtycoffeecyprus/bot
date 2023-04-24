@@ -9,6 +9,8 @@ require dirname(__DIR__).'/vendor/autoload.php';
 $dotenv = new Dotenv();
 $dotenv->loadEnv(dirname(__DIR__).'/.env');
 
+print_r($_SERVER);
+error_log(print_r($_SERVER, true));
 // Process requests from own canonical address
 if (str_ends_with((string) $_ENV['APP_URL'], '://'.$_SERVER['HTTP_HOST'])) {
     // Process normal requests
