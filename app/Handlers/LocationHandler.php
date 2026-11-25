@@ -21,13 +21,13 @@ final class LocationHandler extends BaseHandler
     private Location $location;
 
 
-    public function __construct(Sender $sender, private readonly ApiService $api)
+    public function __construct(sender, private readonly ApiService $api)
     {
         parent::__construct($sender);
     }
 
 
-    public function __invoke(Nutgram $bot): ?Message
+    public function __invoke(Nutgram $bot):?Message
     {
         $this->location = $bot->message()->location;
 
@@ -43,7 +43,7 @@ final class LocationHandler extends BaseHandler
         return [
             new TextAnswer(Formatter::item($cafe), ['parse_mode' => ParseMode::HTML]),
 
-            new VenueAnswer((float) $cafe->latitude, (float) $cafe->longitude, $cafe->name, $cafe->region, [
+            new VenueAnswer((float) $cafe->latitude,(float) cafe->longitude, $cafe->name, $cafe->region, [
                 'google_place_id' => $cafe->placeId,
                 'reply_to_message_id' => 0,
                 'reply_markup' => ['remove_keyboard' => true],
